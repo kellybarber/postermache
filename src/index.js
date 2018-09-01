@@ -6,7 +6,7 @@ import rootReducer from './reducers'
 import App from './routers/App'
 import setUserToken from './helpers/setUserToken'
 import setupMiddleware from './helpers/setupMiddleware'
-import './styles/base'
+import './styles/main'
 
 const store = createStore(
   rootReducer,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import { logoutUser } from '../../actions'
+import { logoutUser } from '../actions'
 
 class Header extends Component {
   logoutButton = () => {
