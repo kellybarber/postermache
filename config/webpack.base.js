@@ -14,6 +14,15 @@ module.exports = {
         use: [ 'babel-loader' ], 
         test: /\.js$/, 
         exclude: /node_modules/ 
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
       }
     ]
   },
@@ -28,5 +37,5 @@ module.exports = {
       { root: path.resolve(__dirname, '..') }
     )
   ],
-  resolve: { extensions: [ '*', '.js', '.css', '.scss' ] },
+  resolve: { extensions: [ '*', '.js', '.css', '.scss' ] }
 }

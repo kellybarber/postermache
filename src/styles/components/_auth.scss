@@ -1,9 +1,18 @@
 .auth {
   height: 100vh;
-  background: #fefbfb;
+  background-image: url('../assets/img/luis-villasmil-poster-wall-compressed.jpg');
+  background-size: cover;
+  background-position: top;
 
   &__container {
     @include center;
+    text-align: center;
+    padding: 4rem;
+    border-radius: .2rem;
+    background: #fff;
+  }
+
+  &__form {
     display: flex;
     flex-direction: column;
   }
