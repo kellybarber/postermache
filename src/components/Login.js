@@ -25,25 +25,27 @@ class Login extends Component {
     const { errorMessage } = this.props
 
     return (
-      <div className='entry__container'>
-        <h1>Welcome Back!</h1>
-        <form onSubmit={this.onSubmit}>
-          <input 
-            placeholder='Email' 
-            name='email' 
-            value={email} 
-            onChange={this.onChange}
-          />
-          <input 
-            placeholder='Password' 
-            name='password' 
-            type='password' 
-            value={password} 
-            onChange={this.onChange}
-          />
-          <button>Login</button>
-        </form>
-        <div>{errorMessage}</div>
+      <div className='auth'>
+        <div className='auth__container'>
+          <h1>Welcome Back!</h1>
+          <form className='auth__form' onSubmit={this.onSubmit}>
+            <input 
+              placeholder='Email' 
+              name='email' 
+              value={email} 
+              onChange={this.onChange}
+            />
+            <input 
+              placeholder='Password' 
+              name='password' 
+              type='password' 
+              value={password} 
+              onChange={this.onChange}
+            />
+            <button>Login</button>
+          </form>
+          <div>{errorMessage}</div>
+        </div>
       </div>
     )
   }

@@ -8,7 +8,7 @@ import Dashboard from '../components/Dashboard'
 
 export default () => (
   <BrowserRouter>
-    <div className='app-container'>
+    <div className='app__container'>
       <Header/>
       <Switch>
         <PublicRoute path='/login' component={Login}/>

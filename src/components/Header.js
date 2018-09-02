@@ -17,14 +17,14 @@ class Header extends Component {
   }
 
   authenticated = () => (
-    <div>
+    <div className='header__container'>
       <Link to='/dashboard'>Dashboard</Link>
       {this.logoutButton()}
     </div>
   )
 
   notAuthenticated = () => (
-    <div>
+    <div className='header__container'>
       <Link to='/register'>Sign Up</Link>
       <Link to='/login'>Sign In</Link>
     </div>
