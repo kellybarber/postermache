@@ -1,3 +1,13 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  line-height: 1.7;
+}
+
 .heading-primary {
-  
+  font-family: $header-font;
+  font-size: 2.4rem;
+  font-weight: 200;
+  color: $color-primary;
+  margin-bottom: 4rem;
 }
