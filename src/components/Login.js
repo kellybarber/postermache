@@ -29,22 +29,32 @@ class Login extends Component {
         <div className='auth__container'>
           <h1 className='heading-primary'>Welcome Back</h1>
           <form className='auth__form' onSubmit={this.onSubmit}>
-            <input 
-              className='auth__form-input'
-              placeholder='Email' 
-              name='email' 
-              type='email'
-              value={email} 
-              onChange={this.onChange}
-            />
-            <input 
-              className='auth__form-input'
-              placeholder='Password' 
-              name='password' 
-              type='password' 
-              value={password} 
-              onChange={this.onChange}
-            />
+            <div className='auth__form-group'>
+              <input 
+                className='auth__form-input'
+                placeholder='Email' 
+                name='email' 
+                type='email'
+                value={email} 
+                onChange={this.onChange}
+              />
+              <label className='auth__form-label'>
+                Email
+              </label>
+            </div>
+            <div className='auth__form-group'>
+              <input 
+                className='auth__form-input'
+                placeholder='Password' 
+                name='password' 
+                type='password' 
+                value={password} 
+                onChange={this.onChange}
+              />
+              <label className='auth__form-label'>
+                Password
+              </label>
+            </div>
             <span className='auth__error'>{errorMessage}</span>
             <button className='auth__form-btn'>Log In</button>
           </form>

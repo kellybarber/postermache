@@ -29,38 +29,58 @@ class Register extends Component {
         <div className='auth__container'>
           <h1 className='heading-primary'>Create Your Account</h1>
           <form className='auth__form' onSubmit={this.onSubmit}>
-            <input 
-              className='auth__form-input'
-              placeholder='First Name' 
-              name='firstName' 
-              type='text'
-              value={firstName} 
-              onChange={this.onChange}
-            />
-            <input 
-              className='auth__form-input'
-              placeholder='Last Name' 
-              name='lastName' 
-              type='text'
-              value={lastName} 
-              onChange={this.onChange}
-            />
-            <input 
-              className='auth__form-input'
-              placeholder='Email' 
-              name='email' 
-              type='email'
-              value={email} 
-              onChange={this.onChange}
-            />
-            <input 
-              className='auth__form-input'
-              placeholder='Password' 
-              name='password' 
-              type='password' 
-              value={password} 
-              onChange={this.onChange}
-            />
+            <div className='auth__form-group'>
+              <input 
+                className='auth__form-input'
+                placeholder='First Name' 
+                name='firstName' 
+                type='text'
+                value={firstName} 
+                onChange={this.onChange}
+              />
+              <label className='auth__form-label'>
+                First Name
+              </label>
+            </div>
+            <div className='auth__form-group'>
+              <input 
+                className='auth__form-input'
+                placeholder='Last Name' 
+                name='lastName' 
+                type='text'
+                value={lastName} 
+                onChange={this.onChange}
+              />
+              <label className='auth__form-label'>
+                Last Name
+              </label>
+            </div>
+            <div className='auth__form-group'>
+              <input 
+                className='auth__form-input'
+                placeholder='Email' 
+                name='email' 
+                type='email'
+                value={email} 
+                onChange={this.onChange}
+              />
+              <label className='auth__form-label'>
+                Email
+              </label>
+            </div>
+            <div className='auth__form-group'>
+              <input 
+                className='auth__form-input'
+                placeholder='Password' 
+                name='password' 
+                type='password' 
+                value={password} 
+                onChange={this.onChange}
+              />
+              <label className='auth__form-label'>
+                Password
+              </label>
+            </div>
             <span className='auth__error'>{errorMessage}</span>
             <button className='auth__form-btn'>Register</button>
           </form>
@@ -70,6 +90,6 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = ({ auth: { authenticated }}) => ({ authenticated })
+const mapStateToProps = ({ auth: { errorMessage }}) => ({ errorMessage })
 
 export default connect(mapStateToProps, { startRegisterUser })(Register)
