@@ -30,20 +30,7 @@
     }
 
     &-group:not(:last-of-type) {
-      margin-bottom: 1.2rem;
-    }
-
-    &-input:placeholder-shown + &-label {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-3rem);
-    }
-
-    &-label {
-      font-size: 1.2rem;
-      display: block;
-      color: #9B9B9B;
-      transition: all .3s;
+      margin-bottom: 1.4rem;
     }
 
     &-input {
@@ -77,6 +64,19 @@
       &::placeholder {
         color: #9B9B9B;
       }
+    }
+
+    &-label {
+      font-size: 1.2rem;
+      display: block;
+      color: #9B9B9B;
+      transition: all .4s;
+    }
+
+    &-input:placeholder-shown + &-label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-2.6rem);
     }
 
     &-btn {

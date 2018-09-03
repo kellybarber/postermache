@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import { PrivateRoute, PublicRoute } from '../helpers/routing'
-import Header from '../components/Header'
+import Navigation from '../components/Navigation'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import Dashboard from '../components/Dashboard'
@@ -9,7 +9,7 @@ import Dashboard from '../components/Dashboard'
 export default () => (
   <BrowserRouter>
     <div className='app__container'>
-      <Header/>
+      <Navigation/>
       <Switch>
         <PublicRoute path='/login' component={Login}/>
         <PublicRoute path='/register' component={Register}/>

@@ -48,6 +48,7 @@ class Login extends Component {
                 placeholder='Password' 
                 name='password' 
                 type='password' 
+                minLength='8'
                 value={password} 
                 onChange={this.onChange}
               />
