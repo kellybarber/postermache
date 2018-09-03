@@ -4,7 +4,7 @@ import { startRegisterUser } from '../actions'
 
 class Register extends Component {
 
-  state = { email: '', password: '' }
+  state = { firstName: '', lastName: '', email: '', password: '' }
 
   onChange = e => {
     const name  = e.target.name
@@ -21,29 +21,50 @@ class Register extends Component {
   }
 
   render() {
-    const { email, password } = this.state
+    const { firstName, lastName, email, password } = this.state
     const { errorMessage } = this.props
 
     return (
-      <div className='entry__container'>
-        <h1>Create Your Account</h1>
-        <form onSubmit={this.onSubmit}>
-          <input 
-            placeholder='Email' 
-            name='email' 
-            value={email} 
-            onChange={this.onChange}
-          />
-          <input 
-            placeholder='Password' 
-            name='password' 
-            type='password' 
-            value={password} 
-            onChange={this.onChange}
-          />
-          <button>Register</button>
-        </form>
-        <div>{errorMessage}</div>
+      <div className='auth'>
+        <div className='auth__container'>
+          <h1 className='heading-primary'>Create Your Account</h1>
+          <form className='auth__form' onSubmit={this.onSubmit}>
+            <input 
+              className='auth__form-input'
+              placeholder='First Name' 
+              name='firstName' 
+              type='text'
+              value={firstName} 
+              onChange={this.onChange}
+            />
+            <input 
+              className='auth__form-input'
+              placeholder='Last Name' 
+              name='lastName' 
+              type='text'
+              value={lastName} 
+              onChange={this.onChange}
+            />
+            <input 
+              className='auth__form-input'
+              placeholder='Email' 
+              name='email' 
+              type='email'
+              value={email} 
+              onChange={this.onChange}
+            />
+            <input 
+              className='auth__form-input'
+              placeholder='Password' 
+              name='password' 
+              type='password' 
+              value={password} 
+              onChange={this.onChange}
+            />
+            <span className='auth__error'>{errorMessage}</span>
+            <button className='auth__form-btn'>Register</button>
+          </form>
+        </div>
       </div>
     )
   }
