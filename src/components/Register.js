@@ -14,10 +14,10 @@ class Register extends Component {
 
   onSubmit = e => {
     e.preventDefault()
-    const { email, password } = this.state
+    const { firstName, lastName, email, password } = this.state
     const { startRegisterUser } = this.props
     
-    startRegisterUser({ email, password })
+    startRegisterUser({ firstName, lastName, email, password })
   }
 
   render() {
@@ -74,6 +74,7 @@ class Register extends Component {
                 placeholder='Password' 
                 name='password' 
                 type='password' 
+                minLength='8'
                 value={password} 
                 onChange={this.onChange}
               />
