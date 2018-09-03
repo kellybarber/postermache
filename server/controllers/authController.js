@@ -35,7 +35,7 @@ exports.register = async (req, res) => {
 
     if (!firstName || !lastName || !email || !password) throw 'You must provide all requested information'
 
-    const user  = await db.User.create({ email, password })
+    const user  = await db.User.create({ firstName, lastName, email, password })
     const token = generateToken(user)
 
     res.send({ token })

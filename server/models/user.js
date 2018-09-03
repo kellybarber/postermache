@@ -3,6 +3,8 @@ const bcrypt     = require('bcrypt')
 const saltRounds = 10
 
 const UserSchema = new mongoose.Schema ({
+  firstName:  { type: String },
+  lastName:   { type: String },
   email:      { type: String, unique: true },
   password:   { type: String }
 })
