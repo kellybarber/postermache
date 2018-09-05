@@ -6,9 +6,8 @@
   "scripts": {
     "dev-server": "webpack-dev-server --config config/webpack.dev.js --hot",
     "start:dev": "nodemon server/index.js",
-    "build": "webpack --config config/webpack.prod.js",
     "start": "node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config config/webpack.prod.js",
     "heroku-postbuild": "npm run build"
   },
   "author": "Kelly Barber",
