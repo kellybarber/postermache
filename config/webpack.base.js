@@ -28,7 +28,7 @@ module.exports = {
       inject: false
     }),
     new CleanWebpackPlugin(
-      ['dist'], 
+      [ 'dist' ], 
       { root: path.resolve(__dirname, '..') }
     )
   ],
