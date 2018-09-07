@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
+import AddPoster from './AddPoster'
 
-export default () => (
-  <div>
-    This is a protected route
-  </div>
-)
+class Dashboard extends Component {
+  render() {
+    return (
+      <div className='main-grid'>
+        
+        <AddPoster/>
+      </div>
+    )
+  }
+}
+
+export default Dashboard
