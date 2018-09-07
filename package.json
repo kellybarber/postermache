@@ -13,6 +13,7 @@
   "author": "Kelly Barber",
   "license": "MIT",
   "dependencies": {
+    "antd": "^3.9.1",
     "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.0",
     "cors": "^2.8.4",
