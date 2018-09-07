@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import Dashboard from '../components/Dashboard'
+import Profile from '../components/Profile'
 
 export default () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ export default () => (
         <PublicRoute path='/login' component={Login}/>
         <PublicRoute path='/register' component={Register}/>
         <PrivateRoute path='/dashboard' component={Dashboard}/>
+        <PrivateRoute path='/profile' component={Profile}/>
       </Switch>
     </div>
   </BrowserRouter>

@@ -1,5 +1,5 @@
 {
-  "name": "Postermache",
+  "name": "postermache",
   "version": "1.0.0",
   "description": "A simple react boilerplate with babel and webpack",
   "main": "index.js",

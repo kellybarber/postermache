@@ -41,7 +41,7 @@
       font-weight: 200;
       border: none;
       border-bottom: 1.2px solid #979797;
-      color: #3D3D3B;
+      color: $color-grey;
       transition: all .3s;
 
       &:not([value='']) {
@@ -62,14 +62,14 @@
       }
 
       &::placeholder {
-        color: #9B9B9B;
+        color: $color-grey-light;
       }
     }
 
     &-label {
       font-size: 1.2rem;
       display: block;
-      color: #9B9B9B;
+      color: $color-grey-light;
       transition: all .4s;
     }
 
@@ -112,14 +112,14 @@
   }
 
   &__forgot-password {
-    color: #9B9B9B;
+    color: $color-grey-light;
     font-size: 1.2rem;
     display: block;
     transition: all .2s;
 
     &:hover {
       transform: scale(1.05);
-      color: #3D3D3B;
+      color: $color-grey;
     }
   }
 }

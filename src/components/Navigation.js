@@ -17,16 +17,20 @@ class Navigation extends Component {
   }
 
   authenticated = () => (
-    <div className='navigation__container'>
+    <div className='navigation'>
       <Link to='/dashboard'>Dashboard</Link>
+      <Link to='/profile'>Profile</Link>
       {this.logoutButton()}
     </div>
   )
 
   notAuthenticated = () => (
-    <div className='navigation__container'>
-      <Link to='/register'>Sign Up</Link>
-      <Link to='/login'>Sign In</Link>
+    <div className='navigation'>
+      <a className='navigation__logo' href='#'>Postermache</a>
+      <div className='navigation__auth'>
+        <Link className='navigation__auth-link' to='/register'>Sign Up</Link>
+        <Link className='navigation__auth-link' to='/login'>Sign In</Link>
+      </div>
     </div>
   )
 

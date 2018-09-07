@@ -1,0 +1,25 @@
+.navigation {
+  display: flex;
+  padding: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(#000, .2);
+
+  &__logo {
+    margin: 0 auto 0 1rem;
+    font-family: $header-font;
+    font-size: 2rem;
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &__auth {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 15rem;
+
+    &-link {
+      color: $color-grey;
+      text-decoration: none;
+    }
+  }
+}
