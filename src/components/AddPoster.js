@@ -5,7 +5,10 @@ class AddPoster extends Component {
 
   state = {
     preview: null,
-    file: null
+    file: null,
+    address: null, 
+    lat: null, 
+    lng: null
   }
 
   handleAddPhoto = e => {
@@ -15,9 +18,8 @@ class AddPoster extends Component {
     })
   }
 
-  handleAddLocation = () => {
-    
-  }
+  handleAddLocation = (address, lat, lng) => this.setState({ address, lat, lng })
+  
 
   onSubmit = () => {
 
@@ -25,6 +27,8 @@ class AddPoster extends Component {
  
   render() {
     const { preview, file } = this.state
+
+    console.log(this.state)
 
     return (
       <div className='add-poster'>
@@ -48,7 +52,7 @@ class AddPoster extends Component {
           />
           <label className='add-poster__form__image-label' htmlFor="add-image">Add Image</label>
 
-          <AddPosterLocation/>
+          <AddPosterLocation handleAddLocation={this.handleAddLocation}/>
 
         </form>
       </div>

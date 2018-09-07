@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 
 class AddPosterLocation extends Component {
 
-  state = { address: '', lat: '', lng: '' }
-
   componentDidMount() {
     const inputNode = document.getElementById('add-location')
     const autoComplete = new window.google.maps.places.Autocomplete(inputNode)
@@ -16,11 +14,11 @@ class AddPosterLocation extends Component {
         }
       } = autoComplete.getPlace()
 
-      this.setState({ 
-        address: formatted_address,
-        lat: lat(),
-        lng: lng()
-      })
+      this.props.handleAddLocation(
+        formatted_address,
+        lat(),
+        lng()
+      )
     })
   }
 
