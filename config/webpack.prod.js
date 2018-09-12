@@ -18,7 +18,7 @@ module.exports = merge(base, {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({ parallel: true, sourceMap: true }),
-      new OptimizeCssAssetsPlugin()
+      new OptimizeCssAssetsPlugin({})
     ]
   },
   plugins: [ 
