@@ -28,8 +28,6 @@ class AddPoster extends Component {
   render() {
     const { preview, file } = this.state
 
-    console.log(this.state)
-
     return (
       <div className='add-poster'>
         <input className='add-poster__checkbox' id='add-poster__toggle' type='checkbox'/>
@@ -37,24 +35,24 @@ class AddPoster extends Component {
           <span className='add-poster__icon'></span>
         </label>
         <div className='add-poster__background'></div>
+        <div className='add-poster__form-container'>
+          <form className='add-poster__form' onSubmit={this.onSubmit}>
+            <h3 className='add-poster__form__heading'>Add a Poster</h3>
+            { preview && <img className='add-poster__form__image-preview' src={preview} alt=''/>}
+            <input 
+              className='add-poster__form__image-input' 
+              id='add-image'
+              name='add-image'
+              type='file'
+              accept='.jpg, .jpeg, .png'
+              onChange={this.handleAddPhoto}
+            />
+            <label className='add-poster__form__image-label' htmlFor="add-image">Add Image</label>
 
-        <form className='add-poster__form' onSubmit={this.onSubmit}>
-          <h3 className='heading-primary'>Add a Poster</h3>
+            <AddPosterLocation className='add-poster__form__input' handleAddLocation={this.handleAddLocation}/>
 
-          <img className='add-poster__form__image-preview' src={preview} alt=''/>
-          <input 
-            className='add-poster__form__image-input' 
-            id='add-image'
-            name='add-image'
-            type='file'
-            accept='.jpg, .jpeg, .png'
-            onChange={this.handleAddPhoto}
-          />
-          <label className='add-poster__form__image-label' htmlFor="add-image">Add Image</label>
-
-          <AddPosterLocation handleAddLocation={this.handleAddLocation}/>
-
-        </form>
+          </form>
+        </div>
       </div>
     )
   }
