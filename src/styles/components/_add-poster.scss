@@ -31,9 +31,9 @@
     border-radius: 50%;
     background-image: radial-gradient($color-primary-light, $color-primary);
 
-    opacity: 1;
-    transform: scale(40);
-    // opacity: 0;
+    // opacity: 1;
+    // transform: scale(40);
+    opacity: 0;
     transition: transform .7s;
   }
 
@@ -80,7 +80,10 @@
 
   // Form 
   &__form-container {
-    @include center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 125;
 
     margin-bottom: 10rem;
@@ -88,7 +91,12 @@
     border-radius: .2rem;
     background: #fff;
 
-    // transition: all .6s;
+    ///////////////////////////// ----- Form Visibility Toggle ----- ///////////////////////////////
+    opacity: 1;
+    // visibility: hidden;
+    // opacity: 0;
+
+    transition: all .6s;
   }
 
   &__form {
@@ -96,12 +104,7 @@
     flex-direction: column;
     justify-content: center;
     z-index: 150;
-
-    width: 30rem;
-    opacity: 1;
-    // visibility: hidden;
-    // opacity: 0;
-    
+    width: 30rem;    
 
     &__heading {
       font-family: $header-font;
@@ -124,7 +127,9 @@
       text-align: center;
       margin-bottom: 2rem;
       padding: 1rem 8rem;
-      background: $color-primary;
+      background: $color-primary-light;
+      border: none;
+      border-radius: .2rem;
       color: #fff;
       cursor: pointer;
     }
@@ -133,7 +138,8 @@
       font-size: inherit;
       font-family: inherit;
       font-weight: 200;
-      padding: 1rem;
+      margin-bottom: 2rem;
+      padding: 1rem 2rem;
       color: $color-grey;
 
       border: 1px solid $color-grey-light;
@@ -142,11 +148,53 @@
       &:focus {
         outline: none;
       }
+
+      &::placeholder {
+        color: $color-grey-light;
+      }
     }
 
+    &__date > .ant-input {
+      height: 4.6rem;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      color: $color-grey;
+      border-color: $color-grey-light;
+      border-radius: .2rem;
+
+      .ant-calendar-range-picker-input {
+        &::placeholder {
+          color: $color-grey-light;
+        }
+      }
+    }
+
+    &__button {
+      margin-bottom: 1rem;
+      padding: 1.2rem;
+      font-size: inherit;
+      border: none;
+      border-radius: .2rem;
+      color: #fff;
+      background: $color-primary;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      transition: all .2s;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 .8rem 2rem rgba(#000, 0.2);
+      }
+
+      &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba(#000, 0.2);
+      } 
+    }
   }
 
-  &__checkbox:checked ~ &__form {
+  &__checkbox:checked ~ &__form-container {
     visibility: initial;
     opacity: 1;
   }

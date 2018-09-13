@@ -8,7 +8,7 @@ exports.verifyUser = async (req, res, next) => {
     const { userId } = jwt.verify(token, process.env.SECRET_KEY);
 
     let user = await db.User.findOne({ _id: userId })
-    if(!user) throw 'You are not verified to view this content'
+    if (!user) throw 'You are not verified to view this content'
 
     console.log('user: ', user)
 
@@ -17,6 +17,6 @@ exports.verifyUser = async (req, res, next) => {
 
   } catch (error) {
     console.log('Verification error: ', error);
-    res.status(401).send({ message: 'Admin verification failed!' });
+    res.status(401).send({ message: 'Verification failed!' });
   }
 }

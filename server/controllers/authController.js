@@ -31,8 +31,6 @@ exports.register = async (req, res) => {
   try {
     const { userData: { firstName, lastName, email, password } } = req.body
 
-    console.log(req.body)
-
     if (!firstName || !lastName || !email || !password) throw 'You must provide all requested information'
 
     const user  = await db.User.create({ firstName, lastName, email, password })

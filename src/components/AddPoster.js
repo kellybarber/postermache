@@ -1,36 +1,42 @@
 import React, { Component } from 'react'
-import AddPosterLocation from './AddPosterLocation'
-
+import { connect } from 'react-redux'
 import { DatePicker } from 'antd'
+
+import { startUploadPoster } from '../actions'
+import AddPosterLocation from './AddPosterLocation' 
 
 class AddPoster extends Component {
 
-  state = {
-    preview: null,
-    file: null,
-    address: null, 
-    lat: null, 
-    lng: null
-  }
+  state = { preview: null, file: null, address: null, lat: null, lng: null, startDate: null, endDate: null }
 
   handleAddPhoto = e => {
-    this.setState({
-      preview: URL.createObjectURL(e.target.files[0]),
-      file: e.target.files[0]
-    })
+    const file = e.target.files[0]
+    this.setState({ preview: URL.createObjectURL(file), file })
   }
 
-  handleAddLocation = (address, lat, lng) => this.setState({ address, lat, lng })
+  handleAddLocation = ( address, lat, lng ) => {
+    this.setState({ address, lat, lng })
+  }
 
-  handleChangeDate = ( date, dateString ) => { console.log(date) }
-  
+  handleChangeDate = ( date, [ startDate, endDate ] ) => { 
+    this.setState({ startDate, endDate })
+  }
 
-  onSubmit = () => {
+  onSubmit = e => {
+    e.preventDefault()
+    const { file, address, lat, lng, startDate, endDate } = this.state
+    const { startUploadPoster } = this.props
 
+    let posterData = new FormData()
+    posterData.append('file', file)
+    posterData.append('details', { address, lat, lng, startDate, endDate })
+
+    startUploadPoster(posterData)
   }
  
   render() {
     const { preview, file } = this.state
+    const { RangePicker } = DatePicker
 
     return (
       <div className='add-poster'>
@@ -44,19 +50,13 @@ class AddPoster extends Component {
             <h3 className='add-poster__form__heading'>Add a Poster</h3>
             { preview && <img className='add-poster__form__image-preview' src={preview} alt=''/>}
             <input 
-              className='add-poster__form__image-input' 
-              id='add-image'
-              name='add-image'
-              type='file'
-              accept='.jpg, .jpeg, .png'
-              onChange={this.handleAddPhoto}
+              className='add-poster__form__image-input' id='add-image' name='add-image' 
+              type='file' accept='.jpg, .jpeg, .png' onChange={this.handleAddPhoto}
             />
             <label className='add-poster__form__image-label' htmlFor="add-image">Add Image</label>
-
             <AddPosterLocation className='add-poster__form__input' handleAddLocation={this.handleAddLocation}/>
-
-            <DatePicker/>
-
+            <RangePicker className='add-poster__form__date' onChange={this.handleChangeDate}/>
+            <button className='add-poster__form__button'>Submit</button>
           </form>
         </div>
       </div>
@@ -64,4 +64,4 @@ class AddPoster extends Component {
   }
 }
 
-export default AddPoster
+export default connect(null, { startUploadPoster })(AddPoster)

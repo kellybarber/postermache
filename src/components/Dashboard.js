@@ -5,7 +5,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div className='main-grid'>
-        
         <AddPoster/>
       </div>
     )
