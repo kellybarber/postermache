@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AddPosterLocation from './AddPosterLocation'
 
+import { DatePicker } from 'antd'
+
 class AddPoster extends Component {
 
   state = {
@@ -19,6 +21,8 @@ class AddPoster extends Component {
   }
 
   handleAddLocation = (address, lat, lng) => this.setState({ address, lat, lng })
+
+  handleChangeDate = ( date, dateString ) => { console.log(date) }
   
 
   onSubmit = () => {
@@ -50,6 +54,8 @@ class AddPoster extends Component {
             <label className='add-poster__form__image-label' htmlFor="add-image">Add Image</label>
 
             <AddPosterLocation className='add-poster__form__input' handleAddLocation={this.handleAddLocation}/>
+
+            <DatePicker/>
 
           </form>
         </div>

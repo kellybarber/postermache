@@ -1,4 +1,7 @@
 {
   "presets": [ "env", "react", "stage-2" ],
-  "plugins": [ "transform-regenerator" ]
+  "plugins": [ 
+    "transform-regenerator", 
+    [ "import", { "libraryName": "antd", "style": "css" } ] 
+  ]
 }
