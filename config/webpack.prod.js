@@ -7,14 +7,6 @@ const base = require('./webpack.base')
 module.exports = merge(base, {
   mode: 'production',
   devtool: 'source-map',
-  module: {
-    rules: [
-      { 
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ], 
-        test: /\.scss$/ 
-      }
-    ]
-  },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({ parallel: true, sourceMap: true }),
@@ -25,5 +17,13 @@ module.exports = merge(base, {
     new MiniCssExtractPlugin({
       filename: 'style.css'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      { 
+        test: /\.scss$/, 
+        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ] 
+      }
+    ]
+  }
 })
