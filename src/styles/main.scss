@@ -1,13 +1,13 @@
-@import './abstracts/animations.scss';
-@import './abstracts/mixins.scss';
-@import './abstracts/variables.scss';
+@import 'abstracts/animations';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
 
-@import './base/base.scss';
-@import './base/typography.scss';
+@import 'base/base';
+@import 'base/typography';
 
-@import './components/add-poster.scss';
-@import './components/auth.scss';
-@import './components/dashboard.scss';
-@import './components/navigation.scss';
+@import 'components/add-poster';
+@import 'components/auth';
 
-@import './layout/grids.scss';
+@import 'components/navigation';
+
+@import 'layout/grids';
