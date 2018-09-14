@@ -20,6 +20,14 @@
     cursor: pointer;
   }
 
+  &__container {
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+
   &__background {
     @include center;
     position: fixed;
@@ -34,7 +42,7 @@
     // opacity: 1;
     // transform: scale(40);
     opacity: 0;
-    transition: transform .7s;
+    transition: transform .85s;
   }
 
   &__icon {
@@ -64,7 +72,7 @@
     }
   }
 
-  &__checkbox:checked ~ &__background {
+  &__checkbox:checked ~ &__container &__background {
     opacity: 1;
     transform: scale(40);
   }
@@ -81,9 +89,9 @@
   // Form 
   &__form-container {
     position: absolute;
-    top: 45%;
+    // top: 45%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     z-index: 125;
 
     margin-bottom: 10rem;
@@ -194,7 +202,7 @@
     }
   }
 
-  &__checkbox:checked ~ &__form-container {
+  &__checkbox:checked ~ &__container &__form-container {
     visibility: initial;
     opacity: 1;
   }

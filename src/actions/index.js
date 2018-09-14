@@ -1,2 +1,2 @@
 export * from './auth'
-export * from './uploadPoster'
+export * from './upload'

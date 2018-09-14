@@ -7,14 +7,14 @@ export const startUploadPoster = posterData => (
         body: posterData
       })
 
-      const data = await response
+      const data = await response.json()
+
+      if (!response.ok) throw data
 
       console.log(data)
-      
 
-
-    } catch (error) {
-      console.log('Error', error)
+    } catch ({ error }) {
+      console.log('Upload Poster Error: ', error)
       
     }
   }

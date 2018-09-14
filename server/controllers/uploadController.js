@@ -10,15 +10,20 @@ cloudinary.config({
 
 exports.uploadPoster = async (req, res, next) => {
   try {
+    if (req.file === undefined) throw 'You must include an image'
+
     const { buffer, mimetype } = req.file
-    const { address, lat, lng, startDate, endDate } = JSON.parse(req.body.details)    
+    const { address, lat, lng, startDate, endDate } = JSON.parse(req.body.details)  
+
+    if (!address || !lng || !lat) throw 'You must provide a valid address'
+    if (!startDate || !endDate) throw 'You must provide all requested information'
 
     const dataUri = new Datauri()
     dataUri.format(mimetype, buffer)
 
     const upload = await cloudinary.v2.uploader.upload(dataUri.content)
 
-    const poster = await db.Poster.create({
+    await db.Poster.create({
       url: upload.secure_url,
       address,
       location: {
@@ -28,12 +33,11 @@ exports.uploadPoster = async (req, res, next) => {
       startDate,
       endDate
     })
-
-    console.log(poster)
     
+    res.send({ Success: 'Your poster was successfully uploaded' })
 
-    res.send({ 'Hello': 'Baby' })
-  } catch {
+  } catch (error) {
+    res.status(422).send({ error })
     console.log('Upload Poster Error', error)
   }
 }
