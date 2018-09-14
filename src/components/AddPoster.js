@@ -7,7 +7,14 @@ import AddPosterLocation from './AddPosterLocation'
 
 class AddPoster extends Component {
 
-  state = { preview: null, file: null, address: null, lat: null, lng: null, startDate: null, endDate: null }
+  state = { 
+    showForm: false, preview: null, 
+    file: null, address: null, lat: null, lng: null, startDate: null, endDate: null 
+  }
+
+  handleShowForm = () => {
+    this.setState(prevState => ({ showForm: !prevState.showForm }))
+  }
 
   handleAddPhoto = e => {
     const file = e.target.files[0]
@@ -35,13 +42,13 @@ class AddPoster extends Component {
   }
  
   render() {
-    const { preview, file } = this.state
+    const { showForm, preview } = this.state
     const { RangePicker } = DatePicker
 
     return (
       <div className='add-poster'>
-        <input className='add-poster__checkbox' id='add-poster__toggle' type='checkbox'/>
-        <label className='add-poster__button' htmlFor='add-poster__toggle'>
+        <input className='add-poster__checkbox' type='checkbox' checked={showForm}/>
+        <label className='add-poster__button' onClick={this.handleShowForm}>
           <span className='add-poster__icon'></span>
         </label>
         <div className='add-poster__background'></div>
