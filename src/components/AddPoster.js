@@ -29,7 +29,7 @@ class AddPoster extends Component {
 
     let posterData = new FormData()
     posterData.append('file', file)
-    posterData.append('details', { address, lat, lng, startDate, endDate })
+    posterData.append('details', JSON.stringify({ address, lat, lng, startDate, endDate }))
 
     startUploadPoster(posterData)
   }
