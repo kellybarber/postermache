@@ -29,7 +29,7 @@ class AddPoster extends Component {
     this.setState({ startDate, endDate })
   }
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault()
     const { file, address, lat, lng, startDate, endDate } = this.state
     const { startUploadPoster } = this.props
@@ -38,7 +38,10 @@ class AddPoster extends Component {
     posterData.append('file', file)
     posterData.append('details', JSON.stringify({ address, lat, lng, startDate, endDate }))
 
-    startUploadPoster(posterData)
+    await startUploadPoster(posterData)
+
+    await this.setState({ preview: null, file: null, address: null, lat: null, lng: null, startDate: null, endDate: null })
+    await this.handleShowForm()
   }
  
   render() {
