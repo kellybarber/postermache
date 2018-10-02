@@ -15,7 +15,7 @@ export const startAddPosters = () => (
       const data = await response.json()
       if (!response.ok) throw data
 
-      console.log(data)
+      dispatch(addPosters(data))
 
     } catch (error) {
       console.log('Add Posters Error: ', error)
