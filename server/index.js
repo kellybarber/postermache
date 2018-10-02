@@ -8,6 +8,7 @@ const publicPath = path.join(__dirname, '..', 'dist')
 require('dotenv').config()
 
 const authRoutes = require('./routes/authRoutes')
+const requestRoutes = require('./routes/requestRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 
 app.use(bodyParser.json());
@@ -15,6 +16,7 @@ app.use(cors())
 app.use(express.static(publicPath))
 
 app.use('/api/auth', authRoutes)
+app.use('/api/request', requestRoutes)
 app.use('/api/upload', uploadRoutes)
 
 app.get('*', (req, res) => {

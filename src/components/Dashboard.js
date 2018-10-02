@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { startAddPosters } from '../actions'
+import PosterBoard from './PosterBoard'
 import AddPoster from './AddPoster'
 
 class Dashboard extends Component {
@@ -6,16 +10,17 @@ class Dashboard extends Component {
   state = { loading: true }
 
   async componentDidMount() {
-    
+    await this.props.startAddPosters()
   }
 
   render() {
     return (
-      <div className='main-grid'>
+      <div>
+        <PosterBoard/>
         <AddPoster/>
       </div>
     )
   }
 }
 
-export default Dashboard
+export default connect(null, { startAddPosters })(Dashboard)
