@@ -11,15 +11,24 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     await this.props.startAddPosters()
+    this.setState({ loading: false })
   }
 
   render() {
-    return (
-      <div>
-        <PosterBoard/>
-        <AddPoster/>
-      </div>
-    )
+    const { loading } = this.state
+
+    if (loading) {
+      return (
+        <h3>...Loading</h3>
+      )
+    } else {
+      return (
+        <div>
+          <PosterBoard/>
+          <AddPoster/>
+        </div>
+      )
+    }
   }
 }
 

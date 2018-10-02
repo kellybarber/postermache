@@ -8,11 +8,12 @@ const addPosters = payload => ({
 export const startAddPosters = () => (
   async (dispatch, getState) => {
     try {
-      const response = await fetch('api/request/posters', {
+      const response = await fetch('/api/request/posters', {
         headers: { authorization: getState().auth.authenticated }
       })
 
-      const data = response.json()
+      const data = await response.json()
+      if (!response.ok) throw data
 
       console.log(data)
 

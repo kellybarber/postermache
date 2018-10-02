@@ -15,7 +15,6 @@ export const startUploadPoster = posterData => (
 
     } catch ({ error }) {
       console.log('Upload Poster Error: ', error)
-      
     }
   }
 )

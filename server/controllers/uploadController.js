@@ -8,7 +8,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-exports.uploadPoster = async (req, res, next) => {
+exports.uploadPoster = async (req, res) => {
   try {
     if (req.file === undefined) throw 'You must include an image'
 
