@@ -23,10 +23,17 @@ class AddPosterLocation extends Component {
   }
 
   render() {
-    const { className } = this.props
+    const { className, address, onChangeLocation } = this.props
 
     return (
-      <input className={className} id='add-location' type='text' placeholder='Enter a Location'/>
+      <input 
+        className={className} 
+        id='add-location' 
+        type='text' 
+        placeholder='Enter a Location'
+        value={address}
+        onChange={onChangeLocation}
+      />
     )
   }
 }

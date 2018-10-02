@@ -8,11 +8,18 @@ import AddPosterLocation from './AddPosterLocation'
 
 class AddPosterForm extends Component {
 
-  state = { preview: null, file: null, address: null, lat: null, lng: null, startDate: null, endDate: null }
+  state = { 
+    preview: null, file: null, address: '', lat: null, lng: null, startDate: null, endDate: null, date: null 
+  }
 
   handleAddPhoto = e => {
     const file = e.target.files[0]
     this.setState({ preview: URL.createObjectURL(file), file })
+  }
+
+  onChangeLocation = e => {
+    const address = e.target.value
+    this.setState({ address })
   }
 
   handleAddLocation = ( address, lat, lng ) => {
@@ -20,7 +27,7 @@ class AddPosterForm extends Component {
   }
 
   handleChangeDate = ( date, [ startDate, endDate ] ) => { 
-    this.setState({ startDate, endDate })
+    this.setState({ startDate, endDate, date })
   }
 
   onSubmit = async e => {
@@ -35,11 +42,13 @@ class AddPosterForm extends Component {
     await startUploadPoster(posterData)
 
     handleShowForm()
-    this.setState({ preview: null, file: null, address: null, lat: null, lng: null, startDate: null, endDate: null })
+    this.setState({ 
+      preview: null, file: null, address: '', lat: null, lng: null, startDate: null, endDate: null, date: null 
+    })
   }
 
   render() {
-    const { preview } = this.state
+    const { preview, address, date } = this.state
     const { RangePicker } = DatePicker
 
     return (
@@ -49,10 +58,13 @@ class AddPosterForm extends Component {
           <AddPosterImage preview={preview} handleAddPhoto={this.handleAddPhoto} />
           <AddPosterLocation 
             className='add-poster__form__input' 
+            address={address}
+            onChangeLocation={this.onChangeLocation}
             handleAddLocation={this.handleAddLocation}
           />
           <RangePicker 
             className='add-poster__form__date' 
+            value={date}
             onChange={this.handleChangeDate}
           />
           <button className='add-poster__form__button'>Submit</button>

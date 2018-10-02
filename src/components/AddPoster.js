@@ -10,7 +10,7 @@ class AddPoster extends Component {
   }
  
   render() {
-    const { showForm, preview } = this.state
+    const { showForm } = this.state
 
     return (
       <div className='add-poster'>
@@ -19,6 +19,7 @@ class AddPoster extends Component {
           <span className='add-poster__icon'></span>
         </label>
         <div className='add-poster__container'>
+          {/* <div className='add-poster__background'></div> */}
           <AddPosterForm handleShowForm={this.handleShowForm}/>
         </div>
       </div>
