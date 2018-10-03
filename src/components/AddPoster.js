@@ -19,7 +19,6 @@ class AddPoster extends Component {
           <span className='add-poster__icon'></span>
         </label>
         <div className='add-poster__container'>
-          {/* <div className='add-poster__background'></div> */}
           <AddPosterForm handleShowForm={this.handleShowForm}/>
         </div>
       </div>

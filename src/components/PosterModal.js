@@ -4,21 +4,16 @@ import { connect } from 'react-redux'
 class PosterModal extends Component {
   render() {
     const { poster, handleShowModal } = this.props
-    console.log(poster)
-    
-
     return (
       <div className='poster-modal' onClick={() => handleShowModal(null)}>
-        <img className='poster-modal__image' src={poster.url} alt='Poster Image'/>
+        <img className='poster-modal__image' src={poster.url} />
       </div>
     )
   }
 }
 
 PosterModal.defaultProps = {
-  poster: {
-    url: ''
-  }
+  poster: { url: '' }
 }
 
 const mapStateToProps = ({ posters: { posters } }, ownProps) => {
