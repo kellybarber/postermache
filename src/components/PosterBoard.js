@@ -20,11 +20,12 @@ class PosterBoard extends Component {
     const { posters } = this.props
   
     return (
-      <div className='poster-grid'>
+      <div className='poster'>
         {posters.map((poster, index) => {
           return <Poster info={poster} key={index} handleShowModal={this.handleShowModal}/>
         })}
-        <PosterModal showModal={showModal} contentId={contentId}/>
+        <input className='poster__modal-checkbox' type='checkbox' checked={showModal} />
+        <PosterModal contentId={contentId} handleShowModal={this.handleShowModal}/>
       </div>
     )
   }
