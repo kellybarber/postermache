@@ -13,7 +13,7 @@ exports.uploadPoster = async (req, res) => {
     if (req.file === undefined) throw 'You must include an image'
 
     const { buffer, mimetype } = req.file
-    const { address, lat, lng, startDate, endDate } = JSON.parse(req.body.details)  
+    const { address, lat, lng, startDate, endDate, uploadDate } = JSON.parse(req.body.details)  
 
     if (!address || !lng || !lat) throw 'You must provide a valid address'
     if (!startDate || !endDate) throw 'You must provide all requested information'
@@ -31,7 +31,8 @@ exports.uploadPoster = async (req, res) => {
         coordinates: [ lng, lat ]
       }, 
       startDate,
-      endDate
+      endDate,
+      uploadDate
     })
     
     res.send(poster)

@@ -14,7 +14,8 @@ const PosterSchema = new mongoose.Schema({
     }
   },
   startDate: { type: Date },
-  endDate: { type: Date }
+  endDate: { type: Date },
+  uploadDate: { type: Date }
 })
 
 module.exports = mongoose.model('Poster', PosterSchema)

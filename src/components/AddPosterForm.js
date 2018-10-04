@@ -37,7 +37,7 @@ class AddPosterForm extends Component {
 
     let posterData = new FormData()
     posterData.append('file', file)
-    posterData.append('details', JSON.stringify({ address, lat, lng, startDate, endDate }))
+    posterData.append('details', JSON.stringify({ address, lat, lng, startDate, endDate, uploadDate: Date.now() }))
 
     const error = await startUploadPoster(posterData)
     
@@ -52,9 +52,6 @@ class AddPosterForm extends Component {
   render() {
     const { preview, address, date } = this.state
     const { RangePicker } = DatePicker
-
-    console.log(this.props.error)
-    
 
     return (
       <div className='add-poster__form-container'>
