@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { PrivateRoute, PublicRoute } from '../helpers/routing'
 import Navigation from '../components/Navigation'
 import Login from '../components/Login'
@@ -12,10 +12,11 @@ export default () => (
     <div className='app__container'>
       <Navigation/>
       <Switch>
+        <PublicRoute exact path='/' component={Register}/>
         <PublicRoute path='/login' component={Login}/>
-        <PublicRoute path='/register' component={Register}/>
         <PrivateRoute path='/dashboard' component={Dashboard}/>
         <PrivateRoute path='/profile' component={Profile}/>
+        <Redirect from='*' to={'/'}/>
       </Switch>
     </div>
   </BrowserRouter>

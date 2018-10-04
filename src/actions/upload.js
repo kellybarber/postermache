@@ -23,6 +23,7 @@ export const startUploadPoster = posterData => (
       if (!response.ok) throw data
 
       dispatch(addPoster(data))
+      dispatch(addPosterError(null))
 
     } catch ({ error }) {
       console.log('Upload Poster Error: ', error)

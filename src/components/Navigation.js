@@ -30,7 +30,7 @@ class Navigation extends Component {
     <div className='navigation'>
       <a className='navigation__logo' href='#'>Postermache</a>
       <div className='navigation__auth'>
-        <Link className='navigation__auth-link' to='/register'>Sign Up</Link>
+        <Link className='navigation__auth-link' to='/'>Sign Up</Link>
         <Link className='navigation__auth-link' to='/login'>Sign In</Link>
       </div>
     </div>

@@ -53,6 +53,9 @@ class AddPosterForm extends Component {
     const { preview, address, date } = this.state
     const { RangePicker } = DatePicker
 
+    console.log(this.props.error)
+    
+
     return (
       <div className='add-poster__form-container'>
         <form className='add-poster__form' onSubmit={this.onSubmit}>
@@ -69,6 +72,7 @@ class AddPosterForm extends Component {
             value={date}
             onChange={this.handleChangeDate}
           />
+          <span className='add-poster__form__error'>{this.props.error}</span>
           <button className='add-poster__form__button'>Submit</button>
         </form>
       </div>
@@ -76,4 +80,6 @@ class AddPosterForm extends Component {
   }
 }
 
-export default connect(null, { startUploadPoster })(AddPosterForm)
+const mapStateToProps = ({ posters: { error } }) => ({ error })
+
+export default connect(mapStateToProps, { startUploadPoster })(AddPosterForm)
