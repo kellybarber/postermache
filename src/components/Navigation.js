@@ -22,10 +22,7 @@ class Navigation extends Component {
   authenticated = () => (
     <div className='navigation'>
       <Link className='navigation__logo' to='/dashboard'>Postermache</Link>
-      {/* <a className='navigation__logo' href='#'>Postermache</a> */}
       <div className='navigation__auth'>
-        {/* <Link className='navigation__auth-link' to='/dashboard'>Dashboard</Link>
-        <Link className='navigation__auth-link' to='/profile'>Profile</Link> */}
         {this.logoutButton()}
       </div>
     </div>
