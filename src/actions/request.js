@@ -1,7 +1,12 @@
-import { ADD_POSTERS } from './types'
+import { ADD_POSTERS, ADD_POSTERS_ERROR } from './types'
 
 const addPosters = payload => ({
   type: ADD_POSTERS,
+  payload
+})
+
+const addPostersError = payload => ({
+  type: ADD_POSTERS_ERROR,
   payload
 })
 

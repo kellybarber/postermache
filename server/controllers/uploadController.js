@@ -23,7 +23,7 @@ exports.uploadPoster = async (req, res) => {
 
     const upload = await cloudinary.v2.uploader.upload(dataUri.content)
 
-    await db.Poster.create({
+    const poster = await db.Poster.create({
       url: upload.secure_url,
       address,
       location: {
@@ -34,7 +34,7 @@ exports.uploadPoster = async (req, res) => {
       endDate
     })
     
-    res.send({ Success: 'Your poster was successfully uploaded' })
+    res.send(poster)
 
   } catch (error) {
     res.status(422).send({ error })

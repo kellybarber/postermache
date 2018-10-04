@@ -39,12 +39,14 @@ class AddPosterForm extends Component {
     posterData.append('file', file)
     posterData.append('details', JSON.stringify({ address, lat, lng, startDate, endDate }))
 
-    await startUploadPoster(posterData)
-
-    handleShowForm()
-    this.setState({ 
-      preview: null, file: null, address: '', lat: null, lng: null, startDate: null, endDate: null, date: null 
-    })
+    const error = await startUploadPoster(posterData)
+    
+    if (!error) {
+      this.setState({ 
+        preview: null, file: null, address: '', lat: null, lng: null, startDate: null, endDate: null, date: null 
+      })
+      handleShowForm()
+    }
   }
 
   render() {
