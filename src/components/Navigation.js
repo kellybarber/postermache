@@ -8,7 +8,7 @@ class Navigation extends Component {
     const { logoutUser, history } = this.props
     return (
       <button 
-        className='navigation__auth-link'
+        className='navigation__logout'
         onClick={() => { 
           logoutUser() 
           history.push('/login') 
@@ -22,9 +22,7 @@ class Navigation extends Component {
   authenticated = () => (
     <div className='navigation'>
       <Link className='navigation__logo' to='/dashboard'>Postermache</Link>
-      <div className='navigation__auth'>
-        {this.logoutButton()}
-      </div>
+      {this.logoutButton()}
     </div>
   )
 

@@ -9,6 +9,13 @@
     font-size: 2rem;
     color: $color-primary;
     text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-primary;
+      text-decoration: none;
+    }
   }
 
   &__auth {
@@ -19,6 +26,31 @@
 
     &-link {
       color: $color-grey;
+      text-decoration: none;
+      transition: all .2s;
+
+      &:hover,
+      &:focus {
+        font-weight: bold;
+        color: $color-primary;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__logout {
+    margin-right: 1rem;
+    padding: .2rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    transition: all .2s;
+
+    &:hover,
+    &:focus {
+      font-weight: bold;
+      color: $color-primary;
       text-decoration: none;
     }
   }
