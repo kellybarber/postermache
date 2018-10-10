@@ -1,6 +1,6 @@
 .poster {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(28rem, 40rem) );
+  grid-template-columns: repeat( auto-fit, minmax(28rem, 1fr) );
   grid-column-gap: 2%;
   grid-row-gap: .8rem;
 
@@ -49,7 +49,8 @@
     transition: all .6s;
 
     &__image {
-      height: 94vh;
+      max-height: 94vh;
+      max-width: 98vw;
       z-index: 350;
     }
   }
