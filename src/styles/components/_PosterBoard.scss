@@ -1,14 +1,24 @@
 .poster {
-  display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(28rem, 1fr) );
-  grid-column-gap: 2%;
-  grid-row-gap: 6rem;
 
-  transition: all .2s;
+  // display: grid;
+  // grid-template-columns: repeat( auto-fit, minmax(28rem, 1fr) );
+  // grid-column-gap: 2%;
+  // grid-row-gap: 6rem;
+
+  // transition: all .2s;
+
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+
+  &-column {
+    padding-left: 2rem;
+  }
 
   &-tile {
     display: flex;
     align-items: center;
+    margin-bottom: 2rem;
     cursor: pointer;
 
     animation: fadeIn .2s;
