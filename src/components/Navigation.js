@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { logoutUser } from '../actions'
 
+import Filters from './Filters'
+
 class Navigation extends Component {
   logoutButton = () => {
     const { logoutUser, history } = this.props
@@ -22,6 +24,7 @@ class Navigation extends Component {
   authenticated = () => (
     <div className='navigation'>
       <Link className='navigation__logo' to='/dashboard'>Postermache</Link>
+      <Filters/>
       {this.logoutButton()}
     </div>
   )
